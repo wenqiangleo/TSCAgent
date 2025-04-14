@@ -1,0 +1,16 @@
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# .specstory文件夹
+.specstory/
+
+envs/*
+!envs/.gitkeep
+
+nets/*
+!nets/.gitkeep
+
+history_data/*
+!history_data/.gitkeep

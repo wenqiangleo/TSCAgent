@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1280" height="720" fill="#f9f9f9"/>
+  
+  <!-- 标题 -->
+  <text x="640" y="60" font-family="Arial, 微软雅黑" font-size="32" text-anchor="middle" font-weight="bold" fill="#333">TSCAgent 项目工作流程</text>
+  
+  <!-- 数据采集阶段 -->
+  <rect x="490" y="120" width="300" height="100" rx="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="640" y="150" font-family="Arial, 微软雅黑" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">数据采集</text>
+  <text x="640" y="185" font-family="Arial, 微软雅黑" font-size="18" text-anchor="middle" fill="#333">SUMO仿真环境 + SAC算法</text>
+  <text x="640" y="210" font-family="Arial, 微软雅黑" font-size="16" text-anchor="middle" fill="#666">sac_online.py</text>
+  
+  <!-- 数据处理阶段 -->
+  <rect x="490" y="280" width="300" height="100" rx="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="640" y="315" font-family="Arial, 微软雅黑" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">数据处理</text>
+  <text x="640" y="350" font-family="Arial, 微软雅黑" font-size="18" text-anchor="middle" fill="#333">generate_dataset.py</text>
+  
+  <!-- 连接线：数据采集到数据处理 -->
+  <line x1="640" y1="220" x2="640" y2="280" stroke="#333" stroke-width="3"/>
+  <polygon points="635,270 640,280 645,270" fill="#333"/>
+  
+  <!-- SFT数据集 -->
+  <rect x="220" y="440" width="380" height="120" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="410" y="475" font-family="Arial, 微软雅黑" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">SFT训练数据集</text>
+  <text x="410" y="510" font-family="Arial, 微软雅黑" font-size="18" text-anchor="middle" fill="#333">Alpaca格式</text>
+  <text x="410" y="540" font-family="Arial, 微软雅黑" font-size="16" text-anchor="middle" fill="#333">{instruction, input, output}</text>
+  
+  <!-- RFT数据集 -->
+  <rect x="680" y="440" width="380" height="120" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="870" y="475" font-family="Arial, 微软雅黑" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">RFT训练数据集</text>
+  <text x="870" y="510" font-family="Arial, 微软雅黑" font-size="18" text-anchor="middle" fill="#333">DeepSeek-R1推理模型蒸馏</text>
+  <text x="870" y="540" font-family="Arial, 微软雅黑" font-size="16" text-anchor="middle" fill="#333">&lt;reasoning&gt;...&lt;/reasoning&gt;&lt;answer&gt;...&lt;/answer&gt;</text>
+  
+  <!-- 连接线：数据处理到SFT数据集 -->
+  <path d="M 640 380 L 640 410 L 410 410 L 410 440" stroke="#333" stroke-width="3" fill="none"/>
+  <polygon points="405,430 410,440 415,430" fill="#333"/>
+  
+  <!-- 连接线：数据处理到RFT数据集 -->
+  <path d="M 640 380 L 640 410 L 870 410 L 870 440" stroke="#333" stroke-width="3" fill="none"/>
+  <polygon points="865,430 870,440 875,430" fill="#333"/>
+  
+  <!-- SFT模型训练 -->
+  <rect x="220" y="610" width="380" height="100" rx="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="410" y="645" font-family="Arial, 微软雅黑" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">SFT模型训练</text>
+  <text x="410" y="680" font-family="Arial, 微软雅黑" font-size="18" text-anchor="middle" fill="#333">run_tsc_sft.py (unsloth工具包)</text>
+  
+  <!-- RFT模型训练 -->
+  <rect x="680" y="610" width="380" height="100" rx="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="870" y="645" font-family="Arial, 微软雅黑" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">RFT模型训练 (GRPO)</text>
+  <text x="870" y="680" font-family="Arial, 微软雅黑" font-size="18" text-anchor="middle" fill="#333">run_tsc_rft.py (unsloth工具包)</text>
+  
+  <!-- 连接线：SFT数据集到SFT模型训练 -->
+  <line x1="410" y1="560" x2="410" y2="610" stroke="#333" stroke-width="3"/>
+  <polygon points="405,600 410,610 415,600" fill="#333"/>
+  
+  <!-- 连接线：RFT数据集到RFT模型训练 -->
+  <line x1="870" y1="560" x2="870" y2="610" stroke="#333" stroke-width="3"/>
+  <polygon points="865,600 870,610 875,600" fill="#333"/>
+  
+  <!-- 文件标签 - 数据集 -->
+  <text x="410" y="570" font-family="Arial, 微软雅黑" font-size="14" text-anchor="middle" fill="#666">tsc_sft_dataset.json</text>
+  <text x="870" y="570" font-family="Arial, 微软雅黑" font-size="14" text-anchor="middle" fill="#666">tsc_rl_dataset.json</text>
+  
+  <!-- 文件标签 - 模型训练结果 -->
+  <text x="410" y="700" font-family="Arial, 微软雅黑" font-size="14" text-anchor="middle" fill="#666">tsc_agent_sft</text>
+  <text x="870" y="700" font-family="Arial, 微软雅黑" font-size="14" text-anchor="middle" fill="#666">tsc_agent_reasoner</text>
+</svg> 
