@@ -22,7 +22,9 @@ def generate_traffic_descriptions(obs_dict):
         phase_lane_mapping[phase_id].append(lane_id)
     
     # 生成场景描述
-    scene_desc = f"该路口有{phase_num}个相位，分别是[0,1,2,3]，有{lane_num}个车道，分别是[0, 1, 2, 3, 4, 5, 6, 7]，"
+    phase_list = [i for i in range(phase_num)]
+    lane_list = [i for i in range(lane_num)]
+    scene_desc = f"该路口有{phase_num}个相位，分别是{phase_list}，有{lane_num}个车道，分别是{lane_list}，"
     scene_desc += "其中"
     for phase in range(phase_num):
         lanes = phase_lane_mapping[phase]
